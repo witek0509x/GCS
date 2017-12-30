@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO.Ports;
 using System.Windows.Forms;
-
+using System.Collections.Generic;
+using System.Threading;
 namespace GCS
 {
     public partial class GCS : Form
@@ -12,10 +13,15 @@ namespace GCS
         public Systems_check SC;
         public CheckList CL;
         public MissionControl MC;
+        Mision mision = new Mision();
 
         public GCS()
         {
             InitializeComponent();
+            
+            DBConnectionThread db = new DBConnectionThread("xd", "127.0.0.1", true);
+            Thread thread = new Thread(new ThreadStart(db.Run));
+            thread.Start();
         }
 
         private void dataDisplayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +55,7 @@ namespace GCS
             {
                 NM.Activate();
             }
+
         }
 
         private void NM_FormClosed(object seender, FormClosedEventArgs e)
@@ -58,12 +65,12 @@ namespace GCS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
         }
 
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            textBox1.Text += serialPort1.ReadLine();
-            textBox1.Text += "\n";
+            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -140,6 +147,10 @@ namespace GCS
         private void MC_FormClosed(object sender, FormClosedEventArgs e)
         {
             MC = null;
+        }
+        
+        private void button2_Click_1(object sender, EventArgs e)
+        {
         }
     }
 }
