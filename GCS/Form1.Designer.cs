@@ -35,9 +35,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.missionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.joinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataDisplayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemsCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.missionStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,33 +82,9 @@
             // 
             // missionToolStripMenuItem
             // 
-            this.missionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.newToolStripMenuItem,
-            this.joinToolStripMenuItem});
             this.missionToolStripMenuItem.Name = "missionToolStripMenuItem";
-            this.missionToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.missionToolStripMenuItem.Text = "Mission";
-            // 
-            // loadToolStripMenuItem
-            // 
-            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.loadToolStripMenuItem.Text = "Load";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // joinToolStripMenuItem
-            // 
-            this.joinToolStripMenuItem.Name = "joinToolStripMenuItem";
-            this.joinToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.joinToolStripMenuItem.Text = "Join";
+            this.missionToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.missionToolStripMenuItem.Text = "New Mission";
             // 
             // dataDisplayToolStripMenuItem
             // 
@@ -248,6 +221,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "GCS";
             this.Text = "Ground Control Station";
+            this.Load += new System.EventHandler(this.GCS_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -263,9 +237,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem missionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem joinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataDisplayToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemsCheckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem missionStatusToolStripMenuItem;

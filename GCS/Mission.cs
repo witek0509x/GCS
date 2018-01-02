@@ -92,19 +92,32 @@ namespace GCS
         {
             int i = 0;
             List<string> tmp = new List<string>();
-            if (TXT.ReadOneLine(0) == "FileIsEmpty") return false;
-            if (TXT.ReadOneLine(0) == "SomeExeption") return false;
+            if (TXT.ReadOneLine(0, "data.txt") == "FileIsEmpty") return false;
+            if (TXT.ReadOneLine(0, "data.txt") == "SomeExeption") return false;
+            if (TXT.ReadOneLine(0, "picture.txt") == "FileIsEmpty") return false;
+            if (TXT.ReadOneLine(0, "picture.txt") == "SomeExeption") return false;
             else
             {
-                while(TXT.ReadOneLine(i) != null)
+                while (TXT.ReadOneLine(i, "data.txt") != null)
                 {
-                    tmp.Add(TXT.ReadOneLine(i));
+                    tmp.Add(TXT.ReadOneLine(i, "data.txt"));
                     i++;
                 }
+                string picture = TXT.ReadOneLine(0, "picture.txt");
                 command.SendUpdate(name, tmp, "123");
                 TXT.clear();
                 return true;
             }
+        }
+        public bool LastImage()
+        {
+            string respond = command.ReciveLastImage(name);
+            TXT.Overwrite(respond, "picture.txt");
+            return true;
+        }
+        public bool CheckTopicality()
+        {
+            return true;
         }
 
     }

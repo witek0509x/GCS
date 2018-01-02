@@ -22,6 +22,7 @@ namespace GCS
             DBConnectionThread db = new DBConnectionThread("xd", "127.0.0.1", true);
             Thread thread = new Thread(new ThreadStart(db.Run));
             thread.Start();
+            Console.WriteLine(TCP.Connect("77.55.219.19", "ReciveUpdate Puszek 2", 3456));
         }
 
         private void dataDisplayToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,6 +152,11 @@ namespace GCS
         
         private void button2_Click_1(object sender, EventArgs e)
         {
+        }
+
+        private void GCS_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

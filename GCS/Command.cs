@@ -51,6 +51,12 @@ namespace GCS
             clear();
             return respond;
         }
+        public string ReciveLastImage(string name)
+        {
+            command = "GetLastImage " + name;
+            CommandExecute();
+            return "";
+        }
         void clear()
         {
             command = "";

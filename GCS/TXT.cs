@@ -16,13 +16,13 @@ namespace GCS
         {
 
         }
-        static public string ReadOneLine(int number)
+        static public string ReadOneLine(int number, string name)
         {
             try
             {
                 int counter = 0;
                 string line;
-                System.IO.StreamReader file = new System.IO.StreamReader(@"data.txt");
+                System.IO.StreamReader file = new System.IO.StreamReader(name);
                 while ((line = file.ReadLine()) != null && counter <= number)
                 {
                     counter++;
@@ -36,6 +36,10 @@ namespace GCS
             {
                 return "SomeExeption";
             }
+        }
+        public static void Overwrite(string txt, string place)
+        {
+            System.IO.File.WriteAllText(place, txt);
         }
         public static void clear()
         {
